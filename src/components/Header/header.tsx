@@ -7,7 +7,8 @@ import {
 import { useContext } from "react";
 import { NavigationContext } from "@/context/navigationContext";
 export const Header = () => {
-  const { homeRef, skillsRef, projectsRef } = useContext(NavigationContext);
+  const { homeRef, skillsRef, projectsRef, contactRef } =
+    useContext(NavigationContext);
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -40,7 +41,10 @@ export const Header = () => {
         >
           Projects
         </NavigationMenuItem>
-        <NavigationMenuItem className="hover:text-blue-500">
+        <NavigationMenuItem
+          className="hover:text-blue-500"
+          onClick={() => scrollToSection(contactRef)}
+        >
           Contact
         </NavigationMenuItem>
       </NavigationMenuList>
