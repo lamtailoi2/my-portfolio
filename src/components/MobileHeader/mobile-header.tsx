@@ -23,7 +23,7 @@ export const MobileHeader = () => {
 
   return (
     <>
-      <div className="bg-black w-screen h-[60px] flex justify-around items-center text-xl sticky top-0 z-10">
+      <div className="bg-black w-screen h-[60px] flex justify-around items-center text-xl sticky top-0 z-20">
         <h1 className="text-white font-extrabold text-2xl cursor-pointer">
           Loi{" "}
           <span className="text-[#9746fa] font-extrabold hover:text-white transition duration-700">

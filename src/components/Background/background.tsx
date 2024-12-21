@@ -3,5 +3,7 @@ interface BackgroundProps {
 }
 
 export const Background = ({ children }: BackgroundProps) => {
-  return <div className="bg-dark-gray w-full h-full min-h-screen overflow-hidden">{children}</div>;
+  return (
+    <div className="bg-dark-gray w-full h-full min-h-screen">{children}</div>
+  );
 };
