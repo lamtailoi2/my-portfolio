@@ -17,15 +17,24 @@ export const AboutUs = () => {
       ref={homeRef}
     >
       <div className="flex flex-col space-y-3">
-        <h1 className="text-5xl text-white font-semibold mt-[50%]">
+        <h1 className="text-5xl text-white font-semibold ">
           Hello World, I&apos;m Loi <span className="text-[#9746fa]">Lam</span>
         </h1>
         <h2 className="text-3xl text-[#BB86FC]">Web Developer</h2>
-        <div className="text-gray-100  text-xl  w-[650px]">
-          <p className="tracking-tight text-balance">
-            A dedicated Software Engineering student with a focus on Web
-            Development. Proficient in developing responsive, user-centered
-            applications.
+        <div className="text-gray-100  text-xl  w-[650px] flex flex-col gap-y-2">
+          <p className="tracking-tight text-left">
+            I am a dedicated Software Engineering student specializing in Web
+            Development, passionate about creating responsive, user-centered
+            applications that solve real-world problems.
+          </p>
+          <p className="tracking-tight text-left">
+            Inspired by the quote,{" "}
+            <strong className="italic">
+              &quot;Your future is created by what you do today, not
+              tomorrow&quot;
+            </strong>
+            , I approach every project with a mindset of continuous learning and
+            improvement.
           </p>
         </div>
         <div className="flex gap-5 text-xl">

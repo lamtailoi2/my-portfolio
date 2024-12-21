@@ -4,6 +4,7 @@ import { Project } from "@/components/Project/projects";
 import { DowloadCV } from "@/components/DowloadCV/dowload-cv";
 import { Contact } from "@/components/Contact/contact";
 import { Footer } from "@/components/Footer/footer";
+import Loading from "./loading";
 export default function Home() {
   return (
     <div className="flex flex-col justify-center items-center">
@@ -13,6 +14,7 @@ export default function Home() {
       <Project />
       <Contact />
       <Footer />
+      {/* <Loading /> */}
     </div>
   );
 }
