@@ -7,10 +7,12 @@ import {
 import { useContext, useState, useEffect } from "react";
 import { NavigationContext } from "@/context/navigationContext";
 import { MobileHeader } from "../MobileHeader/mobile-header";
+
 export const Header = () => {
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
   const { homeRef, skillsRef, projectsRef, contactRef } =
     useContext(NavigationContext);
+
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
@@ -18,16 +20,19 @@ export const Header = () => {
   };
 
   useEffect(() => {
-    const handleResize = () => {
-      setIsMobile(window.innerWidth < 1024);
-    };
+    if (typeof window !== "undefined") {
+      const handleResize = () => {
+        setIsMobile(window.innerWidth < 1024);
+      };
 
-    window.addEventListener("resize", handleResize);
+      handleResize();
 
-    handleResize();
+      window.addEventListener("resize", handleResize);
 
-    return () => window.removeEventListener("resize", handleResize);
+      return () => window.removeEventListener("resize", handleResize);
+    }
   }, []);
+
   return isMobile ? (
     <MobileHeader />
   ) : (
@@ -40,25 +45,25 @@ export const Header = () => {
       </h1>
       <NavigationMenuList className="flex flex-row justify-center items-center gap-10 h-[50px] text-white font-bold hover:cursor-pointer">
         <NavigationMenuItem
-          className="hover:text-blue-500"
+          className="hover:text-blue-500 cursor-pointer"
           onClick={() => scrollToSection(homeRef)}
         >
           Home
         </NavigationMenuItem>
         <NavigationMenuItem
-          className="hover:text-blue-500"
+          className="hover:text-blue-500 cursor-pointer"
           onClick={() => scrollToSection(skillsRef)}
         >
           Skills
         </NavigationMenuItem>
         <NavigationMenuItem
-          className="hover:text-blue-500"
+          className="hover:text-blue-500 cursor-pointer"
           onClick={() => scrollToSection(projectsRef)}
         >
           Projects
         </NavigationMenuItem>
         <NavigationMenuItem
-          className="hover:text-blue-500"
+          className="hover:text-blue-500 cursor-pointer"
           onClick={() => scrollToSection(contactRef)}
         >
           Contact

@@ -45,7 +45,7 @@ export const MobileHeader = () => {
         )}
       </div>
       {isOpen && (
-        <NavigationMenu className="bg-black w-screen h-screen z-30 overflow-x-hidden sticky">
+        <NavigationMenu className="bg-black w-screen h-screen overflow-x-hidden sticky z-10">
           <NavigationMenuList className="flex flex-col gap-2 px-5 pb-10 text-muted-foreground">
             <NavigationMenuItem
               className="hover:text-blue-500 border-b-[0.5px]"
