@@ -4,6 +4,7 @@ import { Header } from "@/components/Header/header";
 import { Roboto } from "next/font/google";
 import { Background } from "@/components/Background/background";
 import { NavigationProvider } from "@/context/navigationContext";
+
 const roboto = Roboto({
   subsets: ["latin"],
   weight: ["400", "500", "700"],

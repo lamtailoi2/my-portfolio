@@ -4,9 +4,11 @@ import {
   NavigationMenuList,
   NavigationMenuItem,
 } from "@radix-ui/react-navigation-menu";
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 import { NavigationContext } from "@/context/navigationContext";
+import { MobileHeader } from "../MobileHeader/mobile-header";
 export const Header = () => {
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1024);
   const { homeRef, skillsRef, projectsRef, contactRef } =
     useContext(NavigationContext);
   const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
@@ -14,7 +16,21 @@ export const Header = () => {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
-  return (
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 1024);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+  return isMobile ? (
+    <MobileHeader />
+  ) : (
     <NavigationMenu className="bg-black w-screen h-[60px] flex justify-around items-center text-xl sticky top-0 z-10">
       <h1 className="text-white font-extrabold text-2xl cursor-pointer">
         Loi{" "}
