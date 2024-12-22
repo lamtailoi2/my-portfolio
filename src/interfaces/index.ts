@@ -7,8 +7,13 @@ export interface Skill {
 export interface Project {
   title: string;
   description: string;
-  img: string | StaticImageData;
-  teamSize?: number;
-  owner?: string;
-  role?: string;
+  image: string | StaticImageData;
+  teamSize: number;
+  role: string;
+  status: "completed" | "in-progress";
+  technologies: string[];
+  links?: {
+    github?: string;
+    live?: string;
+  };
 }

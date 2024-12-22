@@ -17,18 +17,11 @@ export const Project = () => {
       ref={projectsRef}
     >
       <h1 className={`text-5xl text-center ${passion_one.className}`}>
-        PROJECTS
+        FEATURED PROJECTS
       </h1>
-      <div className="flex justify-center items-center gap-5">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-12">
         {projects.map((project) => (
-          <ProjectCard
-            key={project.title}
-            img={project.img ? project.img : ""}
-            title={project.title}
-            teamSize={project.teamSize}
-            role={project.role}
-            description={project.description}
-          />
+          <ProjectCard key={project.title} project={project} />
         ))}
       </div>
     </div>

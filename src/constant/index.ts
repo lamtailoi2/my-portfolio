@@ -97,19 +97,23 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
   {
-    img: epmImg,
+    image: epmImg,
     title: "Experience Point Management System",
     teamSize: 8,
     role: "Frontend Developer",
+    status: "completed",
     description:
       "The system aims to provide an online platform for clubs and departments to manage and input students' experience points efficiently. It enables users to view, add, edit, and delete student activity points with ease. The users of the system include Admins, Clubs, and Departments, allowing for streamlined management of student engagement across various activities",
+    technologies: ["React", "JavaScript", "Tailwind CSS", "MUI"],
   },
   {
-    img: csr,
+    image: csr,
     title: "Checking Résumé System",
     teamSize: 4,
     role: "Frontend Developer",
+    status: "in-progress",
     description:
       "This web application is designed to streamline the recruitment process for the F-Code Club. It allows potential members to apply, submit their résumés, and track the status of their applications. Additionally, it provides a platform for club members to review applications, provide feedback, and make selection decisions.",
+    technologies: ["React", "TypeScript", "Shadcn UI"],
   },
 ];

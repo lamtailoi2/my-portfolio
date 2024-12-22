@@ -1,55 +1,81 @@
-"use client";
-import { Card, CardTitle, CardDescription } from "@/components/card";
+import { Badge } from "@/components/badge";
+import { Button } from "@/components/button";
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/card";
+import { Github, Globe } from "lucide-react";
 import Image from "next/image";
-import { StaticImageData } from "next/image";
-import macos from "../../../public/MacOS.jpg";
+import { Project } from "@/interfaces";
+
 interface ProjectCardProps {
-  title: string;
-  description: string;
-  img?: string | StaticImageData;
-  teamSize?: number;
-  owner?: string;
-  role?: string;
+  project: Project;
 }
 
-export const ProjectCard = ({
-  title,
-  description,
-  img,
-  teamSize,
-  role,
-}: ProjectCardProps) => {
-  const imageSrc = img ?? macos;
+export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="w-[500px] max-h-screen h-[600px] py-5 px-10 flex flex-col justify-center items-center space-y-5 my-[50px] hover:scale-105 hover:duration-1000 hover:transition cursor-pointer">
-      <CardTitle className="text-xl">{title}</CardTitle>
-      <Image
-        src={imageSrc}
-        height={250}
-        width={450}
-        alt={`${title} image`}
-        className="rounded-md border-2 border-gray-800"
-      />
-
-      <CardDescription>
-        {teamSize && (
-          <span>
-            <strong className="font-bold">Team Size: </strong> {teamSize}
-          </span>
+    <Card className="group overflow-hidden border-gray-800 bg-black backdrop-blur-sm hover:bg-gray-900/80 transition-all duration-300 m-10">
+      <CardHeader className="p-0">
+        <div className="relative h-40 sm:h-48 overflow-hidden">
+          <Image
+            src={project.image}
+            alt={project.title}
+            width={600}
+            height={400}
+            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+          />
+          <div className="absolute top-4 right-4">
+            <Badge
+              variant={project.status === "completed" ? "default" : "secondary"}
+            >
+              {project.status === "completed" ? "Completed" : "In Progress"}
+            </Badge>
+          </div>
+        </div>
+      </CardHeader>
+      <CardContent className="p-4 sm:p-6">
+        <h2 className="text-xl sm:text-2xl font-semibold text-white mb-2">
+          {project.title}
+        </h2>
+        <div className="flex flex-col sm:flex-row sm:items-center gap-2 text-gray-400 text-sm mb-4">
+          <span>Team Size: {project.teamSize}</span>
+          <span className="hidden sm:inline">•</span>
+          <span>{project.role}</span>
+        </div>
+        <p className="text-gray-300 mb-4 text-sm sm:text-base line-clamp-3">
+          {project.description}
+        </p>
+        <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-4">
+          {project.technologies.map((tech) => (
+            <Badge
+              key={tech}
+              variant="outline"
+              className="bg-gray-800/50 text-xs sm:text-sm text-white"
+            >
+              {tech}
+            </Badge>
+          ))}
+        </div>
+      </CardContent>
+      <CardFooter className="px-4 sm:px-6 pb-4 sm:pb-6 pt-0 flex flex-col sm:flex-row gap-2 sm:gap-4">
+        {project.links?.github && (
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full sm:w-auto gap-2"
+          >
+            <Github className="w-4 h-4" />
+            GitHub
+          </Button>
         )}
-        <br />
-        {role && (
-          <span>
-            <strong className="font-bold">Role: </strong>
-             {role}
-          </span>
+        {project.links?.live && (
+          <Button
+            variant="outline"
+            size="sm"
+            className="w-full sm:w-auto gap-2"
+          >
+            <Globe className="w-4 h-4" />
+            Live Demo
+          </Button>
         )}
-        <br />
-        <span>
-          <strong className="font-bold">Description: </strong>
-          {description}
-        </span>
-      </CardDescription>
+      </CardFooter>
     </Card>
   );
-};
+}
