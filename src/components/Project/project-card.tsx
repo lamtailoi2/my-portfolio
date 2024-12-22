@@ -4,7 +4,8 @@ import { Card, CardContent, CardFooter, CardHeader } from "@/components/card";
 import { Github, Globe } from "lucide-react";
 import Image from "next/image";
 import { Project } from "@/interfaces";
-
+import { Suspense } from "react";
+import { Spinner } from "../spinner";
 interface ProjectCardProps {
   project: Project;
 }
@@ -14,13 +15,16 @@ export function ProjectCard({ project }: ProjectCardProps) {
     <Card className="group overflow-hidden border-gray-800 bg-black backdrop-blur-sm hover:bg-gray-900/80 transition-all duration-300 m-10">
       <CardHeader className="p-0">
         <div className="relative h-40 sm:h-48 overflow-hidden">
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={600}
-            height={400}
-            className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
-          />
+          <Suspense fallback={<Spinner />}>
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={600}
+              height={400}
+              className="object-cover w-full h-full transition-transform duration-300 group-hover:scale-105"
+            />
+          </Suspense>
+
           <div className="absolute top-4 right-4">
             <Badge
               variant={project.status === "completed" ? "default" : "secondary"}

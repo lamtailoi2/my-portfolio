@@ -21,6 +21,15 @@ export const SkillsSlider = ({ skills }: SkillsSliderProps) => {
     slidesToShow: 5,
     slidesToScroll: 1,
     centerPadding: "10px",
+    responsive: [
+      {
+        breakpoint: 650,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
   return (
     <Slider {...settings} className="w-[75%] flex justify-center my-[70px]">

@@ -33,7 +33,7 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         />
       </head>
-      <body className={roboto.className}>
+      <body className={`${roboto.className} overflow-x-hidden`}>
         <NavigationProvider>
           <Background>
             <Header />

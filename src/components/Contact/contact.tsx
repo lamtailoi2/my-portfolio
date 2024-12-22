@@ -19,7 +19,7 @@ export const Contact = () => {
       <h1 className="text-primary-foreground text-center text-5xl font-bold mb-10">
         <span className={passion_one.className}>CONTACT</span>
       </h1>
-      <div className="grid md:grid-cols-2 gap-8 bg-gradient-to-b from-gray-800 to-gray-900 p-8 rounded-xl shadow-lg lg:w-[750px]">
+      <div className="grid md:grid-cols-2 gap-8 bg-gradient-to-b from-[#1b1b1b] to-black p-8 rounded-xl shadow-lg lg:w-[750px]">
         <ContactForm />
         <SocialLinks />
       </div>

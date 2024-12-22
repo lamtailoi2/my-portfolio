@@ -14,47 +14,52 @@ export const AboutUs = () => {
   const { homeRef } = useContext(NavigationContext);
   return (
     <div
-      className="flex justify-around mb-[100px] mt-[50px] mx-[50px] relative items-center space-x-[300px] "
+      className="lg:flex lg:justify-around mb-[100px] mx-[50px] my-[100px] relative items-center space-x-[300px] "
       ref={homeRef}
     >
       <div className="flex flex-col gap-y-5">
-        <h1 className="text-5xl text-white font-semibold ">
+        <h1 className="lg:text-5xl lg:text-left text-3xl text-center text-white font-semibold ">
           Hello World, I&apos;m Loi <span className="text-[#9746fa]">Lam</span>
         </h1>
-        {/* <h2 className="text-3xl text-[#BB86FC] animate-typewriter">Web Developer</h2> */}
-        <h2 className="text-3xl text-[#BB86FC]">
-          <Typewriter words={["Web Developer"]} loop cursor delaySpeed={3000} typeSpeed={100} />
+        <h2 className="lg:text-3xl lg:text-left text-xl text-center text-[#BB86FC]">
+          <Typewriter
+            words={["Web Developer"]}
+            loop
+            cursor
+            delaySpeed={3000}
+            typeSpeed={100}
+          />
         </h2>
 
-        <div className="text-gray-100  text-xl  w-[650px] flex flex-col gap-y-2">
-          <p className="tracking-tight text-left">
+        <div className="text-gray-100 lg:text-xl text-sm text-center lg:text-left max-w-full flex flex-col gap-y-4">
+          <p className="tracking-tight lg:text-left">
             I am a dedicated Software Engineering student specializing in Web
             Development, passionate about creating responsive, user-centered
             applications that solve real-world problems.
           </p>
-          <p className="tracking-tight text-left">
+          <p className="tracking-tight lg:text-left">
             <strong className="italic">
               &quot;Your future is created by what you do today, not
               tomorrow.&quot;
             </strong>
           </p>
         </div>
-        <div className="flex gap-5 text-xl">
+        <div className="flex gap-5 lg:justify-start justify-center">
           <Button
             variant={"outline"}
-            className="text-xl transition duration-300 border-2 border-transparent"
+            className="lg:text-xl text-m transition duration-300 border-2 border-transparent"
           >
             About Me
           </Button>
           <Button
             onClick={handleClick}
             variant={"default"}
-            className="border-2 text-xl transition duration-300 hover:bg-white hover:border-transparent hover:text-black"
+            className="border-2 lg:text-xl text-m text-white transition duration-300 hover:bg-white hover:border-transparent hover:text-black"
           >
             Let&apos;s Talk
           </Button>
         </div>
-        <div className="flex gap-5">
+        <div className="flex lg:justify-start justify-center gap-5 pt-5">
           <Link
             href="https://github.com/lamtailoi2"
             target="_blank"
@@ -84,11 +89,11 @@ export const AboutUs = () => {
           </Link>
         </div>
       </div>
-      <div>
+      <div className="lg:block hidden">
         <Image
           alt="My cool Img"
           src={me}
-          width={300}
+          width={500}
           className=" transition duration-1000 hover:scale-90"
         />
       </div>
