@@ -12,7 +12,7 @@ interface ProjectCardProps {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <Card className="group overflow-hidden border-gray-800 bg-black backdrop-blur-sm hover:bg-gray-900/80 transition-all duration-300 m-10">
+    <Card className="group overflow-hidden border-gray-800 bg-black backdrop-blur-sm hover:bg-gray-900/80 transition-all duration-300">
       <CardHeader className="p-0">
         <div className="relative h-40 sm:h-48 overflow-hidden">
           <Suspense fallback={<Spinner />}>

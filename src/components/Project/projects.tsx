@@ -19,7 +19,7 @@ export const Project = () => {
       <h1 className={`text-5xl text-center ${passion_one.className}`}>
         FEATURED PROJECTS
       </h1>
-      <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-12">
+      <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-12 m-[50px]">
         {projects.map((project) => (
           <ProjectCard key={project.title} project={project} />
         ))}

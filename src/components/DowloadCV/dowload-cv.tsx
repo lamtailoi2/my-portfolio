@@ -9,7 +9,7 @@ export const DowloadCV = () => {
   };
   return (
     <>
-      <div className="my-[20px]">
+      <div>
         <Button
           className="bg-primary text-white w-[150px] p-7  flex justify-center items-center text-xl"
           onClick={handleDowload}
