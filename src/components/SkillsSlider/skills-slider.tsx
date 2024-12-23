@@ -35,7 +35,10 @@ export const SkillsSlider = ({ skills }: SkillsSliderProps) => {
     <Slider {...settings} className="w-[75%] flex justify-center my-[70px]">
       {skills.map((skill) => {
         return (
-          <Suspense key={skill.name} fallback={<Spinner size={"medium"} />}>
+          <Suspense
+            key={skill.name}
+            fallback={<Spinner size={"medium"} className="text-white" />}
+          >
             <div className="flex flex-col justify-center items-center">
               <Image
                 src={skill.image}

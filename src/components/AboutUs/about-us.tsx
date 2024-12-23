@@ -14,10 +14,10 @@ export const AboutUs = () => {
   const { homeRef } = useContext(NavigationContext);
   return (
     <div
-      className="lg:flex lg:justify-around mb-[100px] mx-[50px] my-[100px] relative items-center space-x-[300px] "
+      className="lg:flex lg:justify-around mb-[100px] mx-[50px] my-[100px] relative items-center lg:w-full"
       ref={homeRef}
     >
-      <div className="flex flex-col gap-y-5">
+      <div className="flex flex-col gap-y-5 lg:w-1/2 w-full">
         <h1 className="lg:text-5xl lg:text-left text-3xl text-center text-white font-semibold ">
           Hello World, I&apos;m Loi <span className="text-[#9746fa]">Lam</span>
         </h1>
@@ -31,7 +31,7 @@ export const AboutUs = () => {
           />
         </h2>
 
-        <div className="text-gray-100 lg:text-xl text-sm text-center lg:text-left max-w-full flex flex-col gap-y-4">
+        <div className="text-gray-100 lg:text-xl text-sm text-center lg:text-left flex flex-col gap-y-4">
           <p className="tracking-tight lg:text-left">
             I am a dedicated Software Engineering student specializing in Web
             Development, passionate about creating responsive, user-centered
@@ -93,7 +93,7 @@ export const AboutUs = () => {
         <Image
           alt="My cool Img"
           src={me}
-          width={500}
+          width={400}
           className=" transition duration-1000 hover:scale-90"
         />
       </div>
