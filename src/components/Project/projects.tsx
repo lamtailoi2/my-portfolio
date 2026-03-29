@@ -1,28 +1,55 @@
 "use client";
-import { Passion_One } from "next/font/google";
-import { ProjectCard } from "./project-card";
+import { FeaturedProjectCard } from "./featured-project-card";
 import { projects } from "@/constant";
-import { useContext } from "react";
-import { NavigationContext } from "@/context/navigationContext";
-const passion_one = Passion_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 
-export const Project = () => {
-  const { projectsRef } = useContext(NavigationContext);
+export const FeaturedProjects = () => {
+  const featuredProjects = projects.filter((p) => p.featured);
+
   return (
-    <div
-      className="text-white w-screen flex flex-col justify-center my-[50px] items-center"
-      ref={projectsRef}
-    >
-      <h1 className={`text-5xl text-center ${passion_one.className}`}>
-        FEATURED PROJECTS
-      </h1>
-      <div className="grid gap-6 sm:gap-8 md:grid-cols-2 lg:gap-12 m-[50px]">
-        {projects.map((project) => (
-          <ProjectCard key={project.title} project={project} />
-        ))}
+    <div className="text-dracula-fg w-full flex flex-col items-center my-[50px] px-4 sm:px-6 lg:px-8">
+      <div className="w-full max-w-5xl">
+        {/* Section header */}
+        <div className="flex items-end justify-between mb-10">
+          <div>
+            <span className="text-dracula-comment text-sm font-mono tracking-wider uppercase">
+              {"// highlighted work"}
+            </span>
+            <h2 className="text-4xl sm:text-5xl font-bold uppercase tracking-wider mt-2">
+              Featured Projects
+            </h2>
+          </div>
+          <Link
+            href="/projects"
+            className="hidden sm:flex items-center gap-2 text-dracula-comment hover:text-dracula-cyan transition-colors duration-300 group"
+          >
+            <span className="text-sm font-mono">View All</span>
+            <ArrowRight
+              size={16}
+              className="group-hover:translate-x-1 transition-transform duration-300"
+            />
+          </Link>
+        </div>
+
+        {/* Featured cards */}
+        <div className="flex flex-col gap-8">
+          {featuredProjects.map((project) => (
+            <FeaturedProjectCard key={project.title} project={project} />
+          ))}
+        </div>
+
+        {/* Mobile "View All" link */}
+        <Link
+          href="/projects"
+          className="sm:hidden flex items-center justify-center gap-2 mt-8 text-dracula-comment hover:text-dracula-cyan transition-colors duration-300 group"
+        >
+          <span className="text-sm font-mono">View All Projects</span>
+          <ArrowRight
+            size={16}
+            className="group-hover:translate-x-1 transition-transform duration-300"
+          />
+        </Link>
       </div>
     </div>
   );

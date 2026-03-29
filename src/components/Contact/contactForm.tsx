@@ -30,7 +30,7 @@ export const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="space-y-2">
-        <Label htmlFor="name" className="text-primary-foreground">
+        <Label htmlFor="name" className="text-dracula-fg">
           Name
         </Label>
         <Input
@@ -41,11 +41,11 @@ export const ContactForm = () => {
           value={formData.name}
           onChange={handleChange}
           required
-          className="bg-gray-700 text-primary-foreground border-gray-600 focus:border-primary"
+          className="bg-dracula-bg text-dracula-fg border-dracula-comment/50 focus:border-dracula-cyan placeholder:text-dracula-comment/50"
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="email" className="text-primary-foreground">
+        <Label htmlFor="email" className="text-dracula-fg">
           Email
         </Label>
         <Input
@@ -56,11 +56,11 @@ export const ContactForm = () => {
           value={formData.email}
           onChange={handleChange}
           required
-          className="bg-gray-700 text-primary-foreground border-gray-600 focus:border-primary"
+          className="bg-dracula-bg text-dracula-fg border-dracula-comment/50 focus:border-dracula-cyan placeholder:text-dracula-comment/50"
         />
       </div>
       <div className="space-y-2">
-        <Label htmlFor="message" className="text-primary-foreground">
+        <Label htmlFor="message" className="text-dracula-fg">
           Message
         </Label>
         <Textarea
@@ -70,12 +70,12 @@ export const ContactForm = () => {
           value={formData.message}
           onChange={handleChange}
           required
-          className="min-h-[150px] bg-gray-700 text-primary-foreground border-gray-600 focus:border-primary"
+          className="min-h-[150px] bg-dracula-bg text-dracula-fg border-dracula-comment/50 focus:border-dracula-cyan placeholder:text-dracula-comment/50"
         />
       </div>
       <Button
         type="submit"
-        className="w-full bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300"
+        className="w-full bg-dracula-pink hover:bg-dracula-pink/80 text-dracula-bg font-semibold py-2 px-4 rounded-md transition-colors duration-300"
       >
         Send Message
       </Button>

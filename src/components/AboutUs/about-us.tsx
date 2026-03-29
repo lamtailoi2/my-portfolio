@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useContext } from "react";
 import { NavigationContext } from "@/context/navigationContext";
 import { Typewriter } from "react-simple-typewriter";
+
 export const AboutUs = () => {
   const handleClick = () => {
     window.location.href = "mailto:lamtailoi11141@gmail.com";
@@ -18,10 +19,11 @@ export const AboutUs = () => {
       ref={homeRef}
     >
       <div className="flex flex-col gap-y-5 lg:w-1/2 w-full">
-        <h1 className="lg:text-5xl lg:text-left text-3xl text-center text-white font-semibold ">
-          Hello World, I&apos;m Loi <span className="text-[#9746fa]">Lam</span>
+        <h1 className="lg:text-5xl lg:text-left text-3xl text-center text-dracula-fg font-semibold">
+          Hello World, I&apos;m Loi{" "}
+          <span className="text-dracula-pink">Lam</span>
         </h1>
-        <h2 className="lg:text-3xl lg:text-left text-xl text-center text-[#BB86FC]">
+        <h2 className="lg:text-3xl lg:text-left text-xl text-center text-dracula-purple">
           <Typewriter
             words={["Web Developer"]}
             loop
@@ -31,14 +33,14 @@ export const AboutUs = () => {
           />
         </h2>
 
-        <div className="text-gray-100 lg:text-xl text-sm text-center lg:text-left flex flex-col gap-y-4">
+        <div className="text-dracula-fg/80 lg:text-xl text-sm text-center lg:text-left flex flex-col gap-y-4">
           <p className="tracking-tight lg:text-left">
             I am a dedicated Software Engineering student specializing in Web
             Development, passionate about creating responsive, user-centered
             applications that solve real-world problems.
           </p>
           <p className="tracking-tight lg:text-left">
-            <strong className="italic">
+            <strong className="italic text-dracula-yellow/80">
               &quot;Your future is created by what you do today, not
               tomorrow.&quot;
             </strong>
@@ -47,14 +49,14 @@ export const AboutUs = () => {
         <div className="flex gap-5 lg:justify-start justify-center">
           <Button
             variant={"outline"}
-            className="lg:text-xl text-m transition duration-300 border-2 border-transparent"
+            className="lg:text-xl text-m transition duration-300 border-2 border-dracula-comment text-dracula-fg hover:border-dracula-cyan hover:text-white"
           >
             About Me
           </Button>
           <Button
             onClick={handleClick}
             variant={"default"}
-            className="border-2 lg:text-xl text-m text-white transition duration-300 hover:bg-white hover:border-transparent hover:text-black"
+            className="border-2 lg:text-xl text-m border-dracula-pink bg-dracula-pink text-dracula-bg transition duration-300 hover:bg-transparent hover:text-dracula-pink"
           >
             Let&apos;s Talk
           </Button>
@@ -64,7 +66,7 @@ export const AboutUs = () => {
             href="https://github.com/lamtailoi2"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-transparent w-[55px] h-[55px] rounded-full text-white hover:bg-gray-700 transition-colors flex justify-center items-center border-white border-2"
+            className="bg-transparent w-[55px] h-[55px] rounded-full text-dracula-fg hover:bg-dracula-current hover:text-dracula-cyan transition-colors flex justify-center items-center border-dracula-comment border-2"
             aria-label="GitHub"
           >
             <Github size={30} />
@@ -73,7 +75,7 @@ export const AboutUs = () => {
             href="https://www.linkedin.com/in/l%E1%BB%A3i-l%C3%A2m-1b1890294/"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-transparent w-[55px] h-[55px] rounded-full text-white hover:bg-gray-700 transition-colors flex justify-center items-center border-white border-2"
+            className="bg-transparent w-[55px] h-[55px] rounded-full text-dracula-fg hover:bg-dracula-current hover:text-dracula-cyan transition-colors flex justify-center items-center border-dracula-comment border-2"
             aria-label="LinkedIn"
           >
             <Linkedin size={30} />
@@ -82,7 +84,7 @@ export const AboutUs = () => {
             href="https://www.facebook.com/L14L07I"
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-transparent w-[55px] h-[55px] rounded-full text-white hover:bg-gray-700 transition-colors flex justify-center items-center border-white border-2"
+            className="bg-transparent w-[55px] h-[55px] rounded-full text-dracula-fg hover:bg-dracula-current hover:text-dracula-cyan transition-colors flex justify-center items-center border-dracula-comment border-2"
             aria-label="Facebook"
           >
             <Facebook size={30} />
@@ -94,7 +96,7 @@ export const AboutUs = () => {
           alt="My cool Img"
           src={me}
           width={400}
-          className=" transition duration-1000 hover:scale-90"
+          className="transition duration-1000 hover:scale-90"
         />
       </div>
     </div>

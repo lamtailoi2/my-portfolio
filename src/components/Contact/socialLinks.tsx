@@ -4,7 +4,7 @@ import { Facebook, Instagram, Linkedin } from "lucide-react";
 export const SocialLinks = () => {
   return (
     <div className="flex flex-col items-center justify-center space-y-6">
-      <h2 className="text-2xl font-bold text-primary-foreground mb-4">
+      <h2 className="text-2xl font-bold text-dracula-fg mb-4">
         Connect With Me
       </h2>
       <div className="flex space-x-4">
@@ -14,7 +14,7 @@ export const SocialLinks = () => {
           label="Facebook"
         />
         <SocialLink
-          href="https://www.instagram.com/https://www.instagram.com/l14t7l/"
+          href="https://www.instagram.com/l14t7l/"
           icon={<Instagram size={30} />}
           label="Instagram"
         />
@@ -41,7 +41,7 @@ const SocialLink = ({
     href={href}
     target="_blank"
     rel="noopener noreferrer"
-    className="bg-gray-700 w-[55px] h-[55px] rounded-full text-primary-foreground hover:bg-gray-600 transition-colors flex justify-center items-center border-gray-500 border-2"
+    className="bg-dracula-current w-[55px] h-[55px] rounded-full text-dracula-fg hover:bg-dracula-comment hover:text-dracula-cyan transition-colors flex justify-center items-center border-dracula-comment border-2"
     aria-label={label}
   >
     {icon}

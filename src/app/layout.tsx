@@ -1,18 +1,20 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import { Header } from "@/components/Header/header";
-import { Roboto } from "next/font/google";
+import { JetBrains_Mono } from "next/font/google";
 import { Background } from "@/components/Background/background";
 import { NavigationProvider } from "@/context/navigationContext";
 
-const roboto = Roboto({
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
+  variable: "--font-jetbrains",
 });
 
 export const metadata: Metadata = {
-  title: "LoiLam",
-  description: "This is my Portfolio",
+  title: "LoiLam | Web Developer",
+  description:
+    "Portfolio of Loi Lam — Software Engineering student specializing in Web Development",
 };
 
 export default function RootLayout({
@@ -33,7 +35,9 @@ export default function RootLayout({
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.1/css/all.min.css"
         />
       </head>
-      <body className={`${roboto.className} overflow-x-hidden`}>
+      <body
+        className={`${jetbrainsMono.variable} font-mono overflow-x-hidden`}
+      >
         <NavigationProvider>
           <Background>
             <Header />

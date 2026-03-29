@@ -2,6 +2,8 @@ import type { Skill } from "@/interfaces";
 import type { Project } from "@/interfaces";
 import epmImg from "../../public/epm.png";
 import csr from "../../public/crs.png";
+import cnppImg from "../../public/cnpp.png";
+import chargedImg from "../../public/charged.png"
 export const skills: Skill[] = [
   {
     name: "ts",
@@ -59,16 +61,6 @@ export const skills: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg",
   },
   {
-    name: "tailwindcss",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg",
-  },
-  {
-    name: "bootstrap",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg",
-  },
-  {
     name: "nestjs",
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nestjs/nestjs-original.svg",
@@ -84,11 +76,6 @@ export const skills: Skill[] = [
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original-wordmark.svg",
   },
   {
-    name: "mui",
-    image:
-      "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/materialui/materialui-original.svg",
-  },
-  {
     name: "git",
     image:
       "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg",
@@ -97,23 +84,54 @@ export const skills: Skill[] = [
 
 export const projects: Project[] = [
   {
+    image: chargedImg,
+    title: "Charged",
+    teamSize: 5,
+    role: "Fullstack Developer",
+    status: "completed",
+    featured: true,
+    links: {
+      github: "https://github.com/orgs/SWP391-MaintenanceManagementSystem/repositories"
+    },
+    description:
+      "A web application designed to streamline vehicle maintenance operations. It provides a user-friendly interface for customers, technicians, and administrators to manage bookings, services, and vehicle information.",
+    technologies: ["NestJS", "TypeScript", "React", "PostgresSQL", "Redis"],
+  },
+  {
+    image: cnppImg,
+    title: "Cẩm Nang Phố Phường",
+    teamSize: 2,
+    role: "Fullstack Developer",
+    status: "completed",
+    featured: true,
+    links: {
+      live: "https://n4hx-capstone-website.vercel.app"
+    },
+    description:
+      "A web app providing post-merger HCMC ward information, featuring interactive mini-games and an admin dashboard with Google Analytics integration.",
+    technologies: ["Next.js", "TypeScript", "MongoDB"],
+  },
+  {
     image: epmImg,
     title: "Experience Point Management System",
     teamSize: 8,
     role: "Frontend Developer",
     status: "completed",
+    featured: false,
     description:
       "The system aims to provide an online platform for clubs and departments to manage and input students' experience points efficiently. It enables users to view, add, edit, and delete student activity points with ease. The users of the system include Admins, Clubs, and Departments, allowing for streamlined management of student engagement across various activities",
-    technologies: ["React", "JavaScript", "Tailwind CSS", "MUI"],
+    technologies: ["React", "JavaScript"],
   },
   {
     image: csr,
     title: "Checking Résumé System",
     teamSize: 4,
     role: "Frontend Developer",
-    status: "in-progress",
+    status: "completed",
+    featured: false,
     description:
       "This web application is designed to streamline the recruitment process for the F-Code Club. It allows potential members to apply, submit their résumés, and track the status of their applications. Additionally, it provides a platform for club members to review applications, provide feedback, and make selection decisions.",
-    technologies: ["React", "TypeScript", "Shadcn UI"],
+    technologies: ["React", "TypeScript"],
   },
+
 ];

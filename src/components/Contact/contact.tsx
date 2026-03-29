@@ -1,13 +1,8 @@
 "use client";
-import { Passion_One } from "next/font/google";
 import { ContactForm } from "./contactForm";
 import { SocialLinks } from "./socialLinks";
 import { useContext } from "react";
 import { NavigationContext } from "@/context/navigationContext";
-const passion_one = Passion_One({
-  subsets: ["latin"],
-  weight: ["400"],
-});
 
 export const Contact = () => {
   const { contactRef } = useContext(NavigationContext);
@@ -16,10 +11,10 @@ export const Contact = () => {
       className="my-[100px] mx-auto max-w-7xl px-4 sm:px-6 lg:px-8"
       ref={contactRef}
     >
-      <h1 className="text-primary-foreground text-center text-5xl font-bold mb-10">
-        <span className={passion_one.className}>CONTACT</span>
+      <h1 className="text-dracula-fg text-center text-5xl font-bold mb-10 uppercase tracking-wider">
+        Contact
       </h1>
-      <div className="grid md:grid-cols-2 gap-8 bg-gradient-to-b from-[#1b1b1b] to-black p-8 rounded-xl shadow-lg lg:w-[750px]">
+      <div className="grid md:grid-cols-2 gap-8 bg-gradient-to-b from-dracula-current to-dracula-bg p-8 rounded-xl border border-dracula-current lg:w-[750px]">
         <ContactForm />
         <SocialLinks />
       </div>

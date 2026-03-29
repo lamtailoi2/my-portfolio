@@ -12,6 +12,7 @@ export interface Project {
   role: string;
   status: "completed" | "in-progress";
   technologies: string[];
+  featured?: boolean;
   links?: {
     github?: string;
     live?: string;
