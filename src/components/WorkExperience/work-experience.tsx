@@ -1,10 +1,10 @@
 "use client";
 import { useContext } from "react";
 import { NavigationContext } from "@/context/navigationContext";
-import { workExperiences } from "@/constant";
+import { WorkExperience as WorkExperienceType } from "@/interfaces";
 import { Briefcase } from "lucide-react";
 
-export const WorkExperience = () => {
+export const WorkExperience = ({ experiences }: { experiences: WorkExperienceType[] }) => {
   const { experienceRef } = useContext(NavigationContext);
   
   return (
@@ -18,7 +18,7 @@ export const WorkExperience = () => {
       </h1>
       
       <div className="flex flex-col gap-8 max-w-4xl mx-auto">
-        {workExperiences.map((exp, index) => (
+        {experiences.map((exp, index) => (
           <div 
             key={index}
             className="group relative rounded-lg border border-dracula-current bg-dracula-current/30 p-8 hover:border-dracula-pink/50 transition-all duration-500"

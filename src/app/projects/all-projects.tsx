@@ -1,5 +1,5 @@
 "use client";
-import { projects } from "@/constant";
+import { Project } from "@/interfaces";
 import { ProjectCard } from "@/components/Project/project-card";
 import { FeaturedProjectCard } from "@/components/Project/featured-project-card";
 import { useState } from "react";
@@ -8,7 +8,7 @@ import { ArrowLeft, Filter } from "lucide-react";
 
 type FilterStatus = "all" | "completed" | "in-progress";
 
-export function AllProjects() {
+export function AllProjects({ projects }: { projects: Project[] }) {
   const [filter, setFilter] = useState<FilterStatus>("all");
 
   const filteredProjects =

@@ -1,10 +1,10 @@
 "use client";
 import { FeaturedProjectCard } from "./featured-project-card";
-import { projects } from "@/constant";
+import { Project } from "@/interfaces";
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
-export const FeaturedProjects = () => {
+export const FeaturedProjects = ({ projects }: { projects: Project[] }) => {
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
