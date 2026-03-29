@@ -32,7 +32,7 @@ export const SkillsSlider = ({ skills }: SkillsSliderProps) => {
     ],
   };
   return (
-    <Slider {...settings} className="w-[75%] flex justify-center my-[70px]">
+    <Slider {...settings} className="w-[75%] flex justify-center w-full">
       {skills.map((skill) => {
         return (
           <Suspense

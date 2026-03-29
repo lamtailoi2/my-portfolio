@@ -8,7 +8,7 @@ export const FeaturedProjects = () => {
   const featuredProjects = projects.filter((p) => p.featured);
 
   return (
-    <div className="text-dracula-fg w-full flex flex-col items-center my-[50px] px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="text-dracula-fg w-full flex flex-col items-center py-20 lg:py-32 px-4 sm:px-6 lg:px-8">
       <div className="w-full max-w-5xl">
         {/* Section header */}
         <div className="flex items-end justify-between mb-10">
@@ -51,6 +51,6 @@ export const FeaturedProjects = () => {
           />
         </Link>
       </div>
-    </div>
+    </section>
   );
 };

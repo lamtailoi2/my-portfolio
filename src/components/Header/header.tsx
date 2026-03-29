@@ -11,9 +11,9 @@ import Link from "next/link";
 
 export const Header = () => {
   const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { homeRef, skillsRef, contactRef } = useContext(NavigationContext);
+  const { homeRef, skillsRef, experienceRef } = useContext(NavigationContext);
 
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
@@ -54,18 +54,18 @@ export const Header = () => {
         </NavigationMenuItem>
         <NavigationMenuItem
           className="hover:text-dracula-cyan cursor-pointer transition duration-300"
+          onClick={() => scrollToSection(experienceRef)}
+        >
+          Experience
+        </NavigationMenuItem>
+        <NavigationMenuItem
+          className="hover:text-dracula-cyan cursor-pointer transition duration-300"
           onClick={() => scrollToSection(skillsRef)}
         >
           Skills
         </NavigationMenuItem>
         <NavigationMenuItem className="hover:text-dracula-cyan cursor-pointer transition duration-300">
           <Link href="/projects">Projects</Link>
-        </NavigationMenuItem>
-        <NavigationMenuItem
-          className="hover:text-dracula-cyan cursor-pointer transition duration-300"
-          onClick={() => scrollToSection(contactRef)}
-        >
-          Contact
         </NavigationMenuItem>
       </NavigationMenuList>
     </NavigationMenu>

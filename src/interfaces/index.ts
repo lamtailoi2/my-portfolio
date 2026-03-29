@@ -18,3 +18,13 @@ export interface Project {
     live?: string;
   };
 }
+
+export interface WorkExperience {
+  company: string;
+  role: string;
+  startDate: string;
+  endDate: string;
+  description: string[];
+  technologies?: string[];
+  isCurrentRole?: boolean;
+}

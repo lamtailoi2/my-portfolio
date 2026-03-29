@@ -2,15 +2,15 @@
 import { createContext, useRef } from "react";
 
 interface NavigationContextType {
-  skillsRef: React.RefObject<HTMLDivElement>;
-  homeRef: React.RefObject<HTMLDivElement>;
-  contactRef: React.RefObject<HTMLDivElement>;
+  skillsRef: React.RefObject<HTMLDivElement | null>;
+  homeRef: React.RefObject<HTMLDivElement | null>;
+  experienceRef: React.RefObject<HTMLDivElement | null>;
 }
 
 const NavigationContext = createContext<NavigationContextType>({
   skillsRef: { current: null },
   homeRef: { current: null },
-  contactRef: { current: null },
+  experienceRef: { current: null },
 });
 
 interface NavigationProviderProps {
@@ -20,8 +20,8 @@ interface NavigationProviderProps {
 const NavigationProvider = ({ children }: NavigationProviderProps) => {
   const skillsRef = useRef<HTMLDivElement>(null);
   const homeRef = useRef<HTMLDivElement>(null);
-  const contactRef = useRef<HTMLDivElement>(null);
-  const value = { skillsRef, homeRef, contactRef };
+  const experienceRef = useRef<HTMLDivElement>(null);
+  const value = { skillsRef, homeRef, experienceRef };
   return (
     <NavigationContext.Provider value={value}>
       {children}

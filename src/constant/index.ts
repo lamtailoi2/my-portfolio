@@ -1,4 +1,4 @@
-import type { Skill } from "@/interfaces";
+import type { Skill, WorkExperience } from "@/interfaces";
 import type { Project } from "@/interfaces";
 import epmImg from "../../public/epm.png";
 import csr from "../../public/crs.png";
@@ -133,5 +133,19 @@ export const projects: Project[] = [
       "This web application is designed to streamline the recruitment process for the F-Code Club. It allows potential members to apply, submit their résumés, and track the status of their applications. Additionally, it provides a platform for club members to review applications, provide feedback, and make selection decisions.",
     technologies: ["React", "TypeScript"],
   },
+];
 
+export const workExperiences: WorkExperience[] = [
+  {
+    company: "FPT Software",
+    role: "Frontend Developer Intern",
+    startDate: "Jan 2026",
+    endDate: "Present",
+    isCurrentRole: true,
+    description: [
+      "Built webviews for Japanese customers.",
+      "Learned professional development processes and software lifecycle.",
+      "Participated in regular code reviews with senior mentors to improve code quality and best practices.",
+    ],
+  },
 ];

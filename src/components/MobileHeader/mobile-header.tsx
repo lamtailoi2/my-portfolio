@@ -11,13 +11,13 @@ import Link from "next/link";
 
 export const MobileHeader = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const { homeRef, skillsRef, contactRef } = useContext(NavigationContext);
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement>) => {
+  const { homeRef, skillsRef, experienceRef } = useContext(NavigationContext);
+  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
     if (ref.current) {
       ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
     }
   };
-  const handleScrollNavigation = (ref: React.RefObject<HTMLDivElement>) => {
+  const handleScrollNavigation = (ref: React.RefObject<HTMLDivElement | null>) => {
     scrollToSection(ref);
     setIsOpen(false);
   };
@@ -58,6 +58,12 @@ export const MobileHeader = () => {
             </NavigationMenuItem>
             <NavigationMenuItem
               className="hover:text-dracula-cyan border-b border-dracula-current py-3 cursor-pointer transition duration-300"
+              onClick={() => handleScrollNavigation(experienceRef)}
+            >
+              Experience
+            </NavigationMenuItem>
+            <NavigationMenuItem
+              className="hover:text-dracula-cyan border-b border-dracula-current py-3 cursor-pointer transition duration-300"
               onClick={() => handleScrollNavigation(skillsRef)}
             >
               Skills
@@ -66,12 +72,6 @@ export const MobileHeader = () => {
               <Link href="/projects" onClick={() => setIsOpen(false)}>
                 Projects
               </Link>
-            </NavigationMenuItem>
-            <NavigationMenuItem
-              className="hover:text-dracula-cyan border-b border-dracula-current py-3 cursor-pointer transition duration-300"
-              onClick={() => handleScrollNavigation(contactRef)}
-            >
-              Contact
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>

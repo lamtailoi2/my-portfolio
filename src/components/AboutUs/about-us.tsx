@@ -14,8 +14,9 @@ export const AboutUs = () => {
   };
   const { homeRef } = useContext(NavigationContext);
   return (
-    <div
-      className="lg:flex lg:justify-around mb-[100px] mx-[50px] my-[100px] relative items-center lg:w-full"
+    <section
+      id="about"
+      className="flex flex-col-reverse lg:flex-row lg:justify-between items-center w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-10 lg:pt-32 lg:pb-16 gap-12"
       ref={homeRef}
     >
       <div className="flex flex-col gap-y-5 lg:w-1/2 w-full">
@@ -99,6 +100,6 @@ export const AboutUs = () => {
           className="transition duration-1000 hover:scale-90"
         />
       </div>
-    </div>
+    </section>
   );
 };
