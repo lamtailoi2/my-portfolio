@@ -1,12 +1,19 @@
+import { profile } from "@/content/profile";
+
 export const Footer = () => {
   return (
-    <div className="h-fit w-full">
-      <div className="w-full h-[50px] bg-dracula-bg border-t border-dracula-current flex justify-center items-center max-h-full">
-        <p className="text-dracula-comment">
-          © {new Date().getFullYear()} All Rights Reserved by Loi{" "}
-          <strong className="text-dracula-pink">Lam</strong>
-        </p>
+    <footer className="border-t border-border/80 bg-background/70">
+      <div className="bio-container flex flex-col gap-4 py-8 text-sm text-muted-foreground sm:flex-row sm:items-center sm:justify-between">
+        <p>© {new Date().getFullYear()} {profile.name}. Digital Bio Lab portfolio.</p>
+        <div className="flex flex-wrap gap-4 font-mono text-xs uppercase tracking-[0.2em]">
+          {profile.socialLinks.map((link) => (
+            <a key={link.href} href={link.href} target="_blank" rel="noopener noreferrer" className="hover:text-primary">
+              {link.label}
+            </a>
+          ))}
+          <a href={`mailto:${profile.email}`} className="hover:text-primary">Email</a>
+        </div>
       </div>
-    </div>
+    </footer>
   );
 };

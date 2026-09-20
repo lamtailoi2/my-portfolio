@@ -1,73 +1,23 @@
-"use client";
-import {
-  NavigationMenu,
-  NavigationMenuList,
-  NavigationMenuItem,
-} from "@radix-ui/react-navigation-menu";
-import { useContext, useState, useEffect } from "react";
-import { NavigationContext } from "@/context/navigationContext";
-import { MobileHeader } from "../MobileHeader/mobile-header";
 import Link from "next/link";
+import { profile } from "@/content/profile";
 
 export const Header = () => {
-  const [isMobile, setIsMobile] = useState<boolean>(false);
-  const { homeRef, skillsRef, experienceRef } = useContext(NavigationContext);
-
-  const scrollToSection = (ref: React.RefObject<HTMLDivElement | null>) => {
-    if (ref.current) {
-      ref.current.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
-  };
-
-  useEffect(() => {
-    if (typeof window !== "undefined") {
-      const handleResize = () => {
-        setIsMobile(window.innerWidth < 1024);
-      };
-
-      handleResize();
-
-      window.addEventListener("resize", handleResize);
-
-      return () => window.removeEventListener("resize", handleResize);
-    }
-  }, []);
-
-  return isMobile ? (
-    <MobileHeader />
-  ) : (
-    <NavigationMenu className="bg-dracula-bg/95 backdrop-blur-sm border-b border-dracula-current w-screen h-[60px] flex justify-around items-center sticky text-xl z-20 top-0">
-      <Link href="/">
-        <h1 className="text-dracula-fg font-extrabold text-2xl cursor-pointer">
-          Loi{" "}
-          <span className="text-dracula-pink font-extrabold hover:text-dracula-cyan transition duration-700">
-            Lam
-          </span>
-        </h1>
-      </Link>
-      <NavigationMenuList className="flex flex-row justify-center items-center gap-10 h-[50px] text-dracula-fg font-bold hover:cursor-pointer">
-        <NavigationMenuItem
-          className="hover:text-dracula-cyan cursor-pointer transition duration-300"
-          onClick={() => scrollToSection(homeRef)}
-        >
-          Home
-        </NavigationMenuItem>
-        <NavigationMenuItem
-          className="hover:text-dracula-cyan cursor-pointer transition duration-300"
-          onClick={() => scrollToSection(experienceRef)}
-        >
-          Experience
-        </NavigationMenuItem>
-        <NavigationMenuItem
-          className="hover:text-dracula-cyan cursor-pointer transition duration-300"
-          onClick={() => scrollToSection(skillsRef)}
-        >
-          Skills
-        </NavigationMenuItem>
-        <NavigationMenuItem className="hover:text-dracula-cyan cursor-pointer transition duration-300">
-          <Link href="/projects">Projects</Link>
-        </NavigationMenuItem>
-      </NavigationMenuList>
-    </NavigationMenu>
+  return (
+    <header className="sticky top-0 z-40 border-b border-border/80 bg-background/88 backdrop-blur-xl">
+      <nav className="bio-container flex h-16 items-center justify-between gap-4" aria-label="Main navigation">
+        <Link href="/" className="font-heading text-sm font-bold uppercase tracking-[0.28em] text-foreground">
+          {profile.name.split(" ")[0]} <span className="text-primary">{profile.name.split(" ").slice(1).join(" ")}</span>
+        </Link>
+        <div className="hidden items-center gap-6 font-mono text-xs uppercase tracking-[0.2em] text-muted-foreground sm:flex">
+          <Link className="transition-colors hover:text-primary" href="/#selected-work">Work</Link>
+          <Link className="transition-colors hover:text-primary" href="/#experience">Experience</Link>
+          <Link className="transition-colors hover:text-primary" href="/#capabilities">Capabilities</Link>
+          <Link className="transition-colors hover:text-primary" href="/projects">Archive</Link>
+        </div>
+        <a className="min-h-11 border border-primary/70 px-3 py-2 font-mono text-xs uppercase tracking-[0.18em] text-primary transition-colors hover:bg-primary hover:text-primary-foreground" href={`mailto:${profile.email}`}>
+          Contact
+        </a>
+      </nav>
+    </header>
   );
 };

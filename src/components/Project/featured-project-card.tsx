@@ -47,15 +47,21 @@ export function FeaturedProjectCard({ project }: FeaturedProjectCardProps) {
       <div className="flex flex-col lg:flex-row">
         {/* Image */}
         <div className="relative lg:w-1/2 h-56 lg:h-auto overflow-hidden">
-          <Suspense fallback={<Spinner />}>
-            <Image
-              src={project.image}
-              alt={project.title}
-              width={800}
-              height={500}
-              className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
-            />
-          </Suspense>
+          {project.image ? (
+            <Suspense fallback={<Spinner />}>
+              <Image
+                src={project.image}
+                alt={project.title}
+                width={800}
+                height={500}
+                className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
+              />
+            </Suspense>
+          ) : (
+            <div className="flex h-full items-center justify-center bg-dracula-current/40 p-6 text-center text-dracula-comment">
+              {project.title}
+            </div>
+          )}
           <div className="absolute inset-0 bg-gradient-to-r from-transparent to-dracula-bg/60 hidden lg:block" />
           <div className="absolute inset-0 bg-gradient-to-t from-dracula-bg/60 to-transparent lg:hidden" />
         </div>

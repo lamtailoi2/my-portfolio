@@ -27,15 +27,21 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
       {/* Image */}
       <div className="relative h-40 overflow-hidden">
-        <Suspense fallback={<Spinner />}>
-          <Image
-            src={project.image}
-            alt={project.title}
-            width={600}
-            height={300}
-            className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
-          />
-        </Suspense>
+        {project.image ? (
+          <Suspense fallback={<Spinner />}>
+            <Image
+              src={project.image}
+              alt={project.title}
+              width={600}
+              height={300}
+              className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-110"
+            />
+          </Suspense>
+        ) : (
+          <div className="flex h-full items-center justify-center bg-dracula-current/40 p-4 text-center text-sm text-dracula-comment">
+            {project.title}
+          </div>
+        )}
         <div className="absolute inset-0 bg-gradient-to-t from-dracula-bg/80 via-transparent to-transparent" />
 
         {/* Status badge overlay */}

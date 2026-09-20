@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/Footer/footer";
 import { AllProjects } from "./all-projects";
-import dbConnect from "@/lib/mongoose";
-import Project from "@/models/Project";
+import { getProjects } from "@/lib/projects";
 
 export const metadata: Metadata = {
   title: "Projects | Loi Lam",
@@ -11,9 +10,7 @@ export const metadata: Metadata = {
 };
 
 export default async function ProjectsPage() {
-  await dbConnect();
-  const dbProjects = await Project.find({}).lean();
-  const projects = JSON.parse(JSON.stringify(dbProjects));
+  const projects = getProjects();
 
   return (
     <>
