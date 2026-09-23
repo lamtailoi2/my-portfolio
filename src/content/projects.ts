@@ -2,6 +2,49 @@ import type { Project } from "@/interfaces";
 
 export const staticProjects: Project[] = [
   {
+    id: "stale-ai-fashion-platform",
+    title: "StAle",
+    summary:
+      "Full-stack AI fashion commerce platform with virtual try-on, live try-on, stylist consultation, chatbot, subscriptions, payments, mobile flows, and admin operations.",
+    description:
+      "Designed and developed a full-stack AI fashion platform supporting e-commerce, virtual try-on, live try-on, AI stylist consultation, chatbot, subscriptions, payments, user measurements, notifications, and admin operations. Built RESTful APIs with NestJS, TypeScript, Prisma, and PostgreSQL for authentication, product catalog, orders, shipment tracking, payments, AI usage quotas, admin settings, and standardized responses. Implemented JWT access/refresh rotation, email verification, password recovery, logout-all, token blacklist, and Google OAuth for web and mobile flows. Integrated fal.ai FASHN, Decart realtime, Google Gemini, contextual chatbot services, SePay checkout/webhooks, Redis quotas/rate limiting/caching, Socket.io realtime features, BullMQ email jobs, and an Expo React Native mobile application.",
+    teamSize: 1,
+    role: "Full-Stack Developer",
+    status: "in-progress",
+    technologies: [
+      "NestJS",
+      "TypeScript",
+      "Prisma",
+      "PostgreSQL",
+      "Redis",
+      "BullMQ",
+      "Socket.io",
+      "Next.js",
+      "React",
+      "Tailwind CSS",
+      "Expo React Native",
+      "TanStack Query",
+      "Zustand",
+      "fal.ai",
+      "Decart AI",
+      "Gemini",
+      "Groq",
+      "SePay",
+      "Cloudinary",
+      "Brevo",
+      "Docker",
+    ],
+    featured: true,
+    showcaseOrder: 1,
+    category: "full-stack",
+    capabilities: ["frontend", "backend", "data", "api-design", "ui-implementation", "performance"],
+    highlights: [],
+    links: {
+      live: "https://fashion-ai-fe.vercel.app/",
+    },
+    createdAt: "2026-07-01T00:00:00.000Z",
+  },
+  {
     id: "69c8da8486403906b4108766",
     title: "Experience Point Management System",
     description:
@@ -33,6 +76,7 @@ export const staticProjects: Project[] = [
     capabilities: ["frontend", "backend", "api-design", "data"],
     links: {
       github: "https://github.com/orgs/SWP391-MaintenanceManagementSystem/repositories",
+      live: "https://swp-391-fe-one.vercel.app/",
     },
     createdAt: "2026-03-29T07:53:38.905Z",
   },

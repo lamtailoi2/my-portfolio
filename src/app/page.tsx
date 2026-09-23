@@ -20,8 +20,7 @@ export default async function Home() {
     (a, b) => (a.order ?? Number.POSITIVE_INFINITY) - (b.order ?? Number.POSITIVE_INFINITY)
   );
   const proofProjects = projects.filter(isHomeProof);
-  const displayProjects = proofProjects.length > 0 ? proofProjects : projects;
-  const initialProject = displayProjects[0];
+  const initialProject = proofProjects[0] ?? projects[0];
 
   return (
     <>
@@ -65,7 +64,7 @@ export default async function Home() {
           </div>
           <Button asChild variant="secondary"><Link href="/projects">Open archive</Link></Button>
         </div>
-        {displayProjects.length > 0 ? <ProjectExplorer projects={displayProjects} initialProjectId={initialProject?.id} /> : <ProjectEvidencePanel />}
+        {projects.length > 0 ? <ProjectExplorer projects={projects} initialProjectId={initialProject?.id} /> : <ProjectEvidencePanel />}
       </section>
 
       <WorkExperienceComponent experiences={experiences} />
